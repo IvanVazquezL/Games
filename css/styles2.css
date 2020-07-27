@@ -1,0 +1,37 @@
+body{
+  text-align: center;
+}
+
+.grid{
+  display:flex !important;
+  flex-wrap: wrap;
+  height: 400px;
+  width:550px;
+  padding-left: 25rem;
+  position:absolute;
+
+}
+
+.cards{
+  height:138px;
+  width:134px;
+  font-size: 100px;
+  display: inline-block;
+  cursor:pointer;
+  text-align: center;
+}
+
+.scoreboard{
+  position:absolute;
+  text-align: center;
+
+}
+
+.scoreboard h2{
+  padding-left: 7rem;
+  padding-right: 2rem;
+}
+
+li{
+  font-size: 1.5rem;
+}
