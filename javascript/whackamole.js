@@ -2,9 +2,14 @@ const square = document.querySelectorAll(".square");
 const mole = document.querySelectorAll(".mole");
 const timeLeft = document.querySelector("#time-left");
 let score = document.querySelector("#score");
+var audioMonkey = new Audio('audios/monkey.wav');
 
 let result = 0;
 let currentTime = timeLeft.textContent;
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function randomSquare(){
   square.forEach(squareDiv =>{
@@ -20,17 +25,21 @@ function randomSquare(){
 }
 
 square.forEach(id => {
-  id.addEventListener("mouseup",()=>{
+  id.addEventListener("mouseup", async ()=>{
     if(id.id ===hitPosition){
       result = result + 1;
       score.textContent = result;
+      id.textContent = "💥";
+      audioMonkey.play();
+      await sleep(9000);
+
     }
   });
 });
 
 function moveMole(){
   let timerId = null;
-  timerId = setInterval(randomSquare,700);
+  timerId = setInterval(randomSquare,900);
 }
 
 moveMole();

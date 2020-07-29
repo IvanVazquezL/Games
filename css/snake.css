@@ -1,0 +1,29 @@
+.grid{
+  width:600px;
+  height:600px;
+  display:flex;
+  flex-wrap: wrap;
+  border-style: solid;
+}
+
+.grid div{
+  width:60px;
+  height:60px;
+  font-size: 3rem;
+}
+
+.snake:before{
+  content:"🟢";
+}
+
+.snake .head:before{
+  content:"🐸"!important;
+}
+
+.food:before{
+  content:"🍎";
+}
+
+.explosion:before{
+  content: "💥";
+}
