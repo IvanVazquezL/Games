@@ -1,0 +1,115 @@
+body{
+  background-color: black;
+}
+.grid{
+  /* width:850px;
+  height:850px; */
+  width:650px;
+  height:650px;
+  display:flex;
+  flex-flow: row wrap;
+  margin: auto;
+  justify-content: center;
+ align-content: center;
+}
+
+.square{
+  width:75px;
+  height:75px;
+  /* border-style: solid;
+  border-color: green; */
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.black{
+  background-color: green;
+}
+
+.white{
+  background-color: white;
+}
+
+.blackPawn{
+  background-image: url("../images/blackpawn.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blackTower{
+  background-image: url("../images/blacktower.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blackKnight{
+  background-image: url("../images/blackknight.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blackBishop{
+  background-image: url("../images/blackbishop.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blackQueen{
+  background-image: url("../images/blackqueen.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blackKing{
+  background-image: url("../images/blackking.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.whitePawn{
+  background-image: url("../images/whitepawn.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.whiteTower{
+  background-image: url("../images/whitetower.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.whiteKnight{
+  background-image: url("../images/whiteknight.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.whiteBishop{
+  background-image: url("../images/whitebishop.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.whiteQueen{
+  background-image: url("../images/whitequeen.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.whiteKing{
+  background-image: url("../images/whiteking.png");
+  background-size: 27px 65px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
