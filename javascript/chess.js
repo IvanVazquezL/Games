@@ -40,18 +40,28 @@ var turnPlayer = "white";
 //To know which playe is playing
 var player;
 
+document.addEventListener('DOMContentLoaded', () =>{
+  addListenerBlack();
+  addListenerWhite();
+});
 
 //Give all the blackPawns an event listener
 //If the user clicks on a blackPawn do the numberLetterPawn function
-for(var i = 0; i < blackPawns;i++){
-  document.querySelectorAll(".blackPawn")[i].addEventListener("click", function(){ numberLetterPawn(this,"black")}, false );
+function addListenerBlack(){
+  for(var i = 0; i < blackPawns;i++){
+    document.querySelectorAll(".blackPawn")[i].addEventListener("click", function(){ numberLetterPawn(this,"black")}, false );
+  }
 }
+
 
 //Give all the whitePawns an event listener
 //If the user clicks on a whitePawn do the numberLetterPawn function
-for(var i = 0; i < whitePawns;i++){
-  document.querySelectorAll(".whitePawn")[i].addEventListener("click", function(){ numberLetterPawn(this,"white")}, false );
+function addListenerWhite(){
+  for(var i = 0; i < whitePawns;i++){
+    document.querySelectorAll(".whitePawn")[i].addEventListener("click", function(){ numberLetterPawn(this,"white")}, false );
+  }
 }
+
 
 //Receives the square that has the piece the user wants to move
 function numberLetterPawn(element,whiteOrBlack){
@@ -98,18 +108,18 @@ function movePawn(){
   if(turnPlayer==="white"){
     if(whitePawnStart[indexPawnStart]===0){
       var enter = true;
-      var addOrSubOne = 1;
       var addOrSubTwo = 2;
-      var whiteOrBlackPawnClass = "whitePawn";
     }
+    var addOrSubOne = 1;
+    var whiteOrBlackPawnClass = "whitePawn";
   }
   else{
     if(blackPawnStart[indexPawnStart]===0){
       var enter = true;
-      var addOrSubOne = -1;
       var addOrSubTwo = -2;
-      var whiteOrBlackPawnClass = "blackPawn";
     }
+    var addOrSubOne = -1;
+    var whiteOrBlackPawnClass = "blackPawn";
   }
 
   //If the value is zero with the position of the index, it is the first time of the pawn and it can have two moves
@@ -132,8 +142,14 @@ function movePawn(){
       //remove the blackPawn class from the original square
       var originalSquare = document.getElementById(selectedId).classList.remove(whiteOrBlackPawnClass);
 
+      //the square that was abandoned now needs to habe the class of occupied
+      var addUnoccupied = document.getElementById(selectedId).classList.add("unoccupied");
+
       //add the blackPawn class from the target square
       var targetSquare = document.getElementById(selectedSquare).classList.add(whiteOrBlackPawnClass);
+
+      //remove occupied from target square
+      var removeOccupied = document.getElementById(selectedSquare).classList.remove("unoccupied");
 
       if(turnPlayer === "black"){
         //Increment in one the array of the first time move of the pawn in the position according to the orignal square
@@ -150,11 +166,35 @@ function movePawn(){
     }
 
   }
+  else{
+    //Turn into an int the number part of the square you want to move the piece
+    selectedSquareNumber = parseInt(selectedSquare[0]);
+
+    //Put into the variable the letter part of the id of the square you want to move the piece
+    selectedSquareLetter = selectedSquare[1];
+    console.log("selectedSquareNumber: "+selectedSquareNumber);
+    console.log("selectedSquareLetter: "+selectedSquareLetter);
+
+    //The normal move of a pawn is one square
+    //And also that the letter is the same as the original letter
+    if(selectedSquareNumber===(selectedIdNumber+addOrSubOne) && selectedSquareLetter===selectedIdLetter)
+    {
+      console.log("entre1");
+      //remove the blackPawn class from the original square
+      var originalSquare = document.getElementById(selectedId).classList.remove(whiteOrBlackPawnClass);
+
+      //add the blackPawn class from the target square
+      var targetSquare = document.getElementById(selectedSquare).classList.add(whiteOrBlackPawnClass);
+    }
+
+  }
 
   if(turnPlayer==="white"){
+    addListenerWhite();
     turnPlayer = "black";
   }
   else{
+    addListenerBlack();
     turnPlayer = "white";
   }
 }
